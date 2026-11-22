@@ -1,0 +1,89 @@
+<Window x:Class="CetakSertifikatApp.Views.InputColorDialog"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d"
+        Title="Pilih Warna Teks" Height="400" Width="420"
+        WindowStartupLocation="CenterOwner" ShowInTaskbar="False"
+        ResizeMode="NoResize"
+        Background="#F8FAFC">
+    <Grid Margin="16">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+
+        <TextBlock Grid.Row="0" Text="Pilih Palet Warna atau Masukkan Kode Hex" FontWeight="SemiBold" Foreground="#1E293B" Margin="0,0,0,12" />
+
+        <StackPanel Grid.Row="1">
+            <!-- Color Preview Box & Hex Input -->
+            <Border Background="White" BorderBrush="#E2E8F0" BorderThickness="1" CornerRadius="6" Padding="12" Margin="0,0,0,12">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="60" />
+                        <ColumnDefinition Width="*" />
+                    </Grid.ColumnDefinitions>
+                    <Border x:Name="ColorPreview" Grid.Column="0" Height="40" Background="#1A1A1A" BorderBrush="#CBD5E1" BorderThickness="1" CornerRadius="4" Margin="0,0,12,0" />
+                    <StackPanel Grid.Column="1" VerticalAlignment="Center">
+                        <TextBlock Text="Kode Warna HEX:" FontSize="11" Foreground="#64748B" />
+                        <TextBox x:Name="TxtHex" Text="#1A1A1A" Height="28" VerticalContentAlignment="Center" Margin="0,2,0,0" TextChanged="TxtHex_TextChanged" />
+                    </StackPanel>
+                </Grid>
+            </Border>
+
+            <!-- Preset Palettes for Certificates -->
+            <TextBlock Text="Warna Populer Sertifikat:" FontSize="12" FontWeight="Medium" Foreground="#334155" Margin="0,0,0,6" />
+            <WrapPanel Margin="0,0,0,12">
+                <!-- Row 1: Dark tones -->
+                <Button Width="32" Height="32" Background="#000000" Margin="3" Tag="#000000" Click="Palette_Click" ToolTip="Hitam Pekat" Cursor="Hand" />
+                <Button Width="32" Height="32" Background="#1A1A1A" Margin="3" Tag="#1A1A1A" Click="Palette_Click" ToolTip="Hitam Arang" Cursor="Hand" />
+                <Button Width="32" Height="32" Background="#334155" Margin="3" Tag="#334155" Click="Palette_Click" ToolTip="Slate Dark" Cursor="Hand" />
+                <Button Width="32" Height="32" Background="#0F2027" Margin="3" Tag="#0F2027" Click="Palette_Click" ToolTip="Navy Tua" Cursor="Hand" />
+                <Button Width="32" Height="32" Background="#1E3A8A" Margin="3" Tag="#1E3A8A" Click="Palette_Click" ToolTip="Biru Royal" Cursor="Hand" />
+                <Button Width="32" Height="32" Background="#0284C7" Margin="3" Tag="#0284C7" Click="Palette_Click" ToolTip="Sky Blue" Cursor="Hand" />
+
+                <!-- Row 2: Golds, Reds, Greens -->
+                <Button Width="32" Height="32" Background="#C5A059" Margin="3" Tag="#C5A059" Click="Palette_Click" ToolTip="Emas Klasik" Cursor="Hand" />
+                <Button Width="32" Height="32" Background="#B45309" Margin="3" Tag="#B45309" Click="Palette_Click" ToolTip="Emas Tua / Amber" Cursor="Hand" />
+                <Button Width="32" Height="32" Background="#8C7341" Margin="3" Tag="#8C7341" Click="Palette_Click" ToolTip="Perunggu / Bronze" Cursor="Hand" />
+                <Button Width="32" Height="32" Background="#7F1D1D" Margin="3" Tag="#7F1D1D" Click="Palette_Click" ToolTip="Merah Marun" Cursor="Hand" />
+                <Button Width="32" Height="32" Background="#881337" Margin="3" Tag="#881337" Click="Palette_Click" ToolTip="Rose Dark" Cursor="Hand" />
+                <Button Width="32" Height="32" Background="#064E3B" Margin="3" Tag="#064E3B" Click="Palette_Click" ToolTip="Hijau Emerald" Cursor="Hand" />
+                <Button Width="32" Height="32" Background="#15803D" Margin="3" Tag="#15803D" Click="Palette_Click" ToolTip="Hijau Daun" Cursor="Hand" />
+                <Button Width="32" Height="32" Background="#581C87" Margin="3" Tag="#581C87" Click="Palette_Click" ToolTip="Ungu Gelap" Cursor="Hand" />
+            </WrapPanel>
+
+            <!-- RGB Sliders -->
+            <Border Background="White" BorderBrush="#E2E8F0" BorderThickness="1" CornerRadius="6" Padding="10">
+                <StackPanel>
+                    <!-- Red -->
+                    <DockPanel LastChildFill="True" Margin="0,0,0,4">
+                        <TextBlock Text="R:" Width="18" Foreground="#DC2626" FontWeight="Bold" VerticalAlignment="Center" />
+                        <TextBlock x:Name="TxtValR" Width="30" Text="26" VerticalAlignment="Center" Foreground="#64748B" FontSize="11" />
+                        <Slider x:Name="SliderR" Minimum="0" Maximum="255" ValueChanged="Slider_ValueChanged" />
+                    </DockPanel>
+                    <!-- Green -->
+                    <DockPanel LastChildFill="True" Margin="0,0,0,4">
+                        <TextBlock Text="G:" Width="18" Foreground="#16A34A" FontWeight="Bold" VerticalAlignment="Center" />
+                        <TextBlock x:Name="TxtValG" Width="30" Text="26" VerticalAlignment="Center" Foreground="#64748B" FontSize="11" />
+                        <Slider x:Name="SliderG" Minimum="0" Maximum="255" ValueChanged="Slider_ValueChanged" />
+                    </DockPanel>
+                    <!-- Blue -->
+                    <DockPanel LastChildFill="True">
+                        <TextBlock Text="B:" Width="18" Foreground="#2563EB" FontWeight="Bold" VerticalAlignment="Center" />
+                        <TextBlock x:Name="TxtValB" Width="30" Text="26" VerticalAlignment="Center" Foreground="#64748B" FontSize="11" />
+                        <Slider x:Name="SliderB" Minimum="0" Maximum="255" ValueChanged="Slider_ValueChanged" />
+                    </DockPanel>
+                </StackPanel>
+            </Border>
+        </StackPanel>
+
+        <!-- Bottom Actions -->
+        <StackPanel Grid.Row="2" Orientation="Horizontal" HorizontalAlignment="Right" Margin="0,12,0,0">
+            <Button Content="Batal" IsCancel="True" Padding="16,6" Margin="0,0,8,0" Background="#F1F5F9" BorderBrush="#CBD5E1" Cursor="Hand" />
+            <Button Content="Terapkan Warna" Click="BtnOk_Click" Padding="18,6" Background="#2563EB" Foreground="White" BorderThickness="0" FontWeight="SemiBold" Cursor="Hand" />
+        </StackPanel>
+    </Grid>
+</Window>

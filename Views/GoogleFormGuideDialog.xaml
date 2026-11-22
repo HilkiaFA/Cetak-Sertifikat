@@ -1,0 +1,86 @@
+<Window x:Class="CetakSertifikatApp.Views.GoogleFormGuideDialog"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d"
+        Title="Panduan Mengumpulkan Data Peserta (Google Form / Spreadsheet)" Height="520" Width="680"
+        WindowStartupLocation="CenterOwner" ShowInTaskbar="False"
+        ResizeMode="NoResize"
+        Background="#F8FAFC">
+    <Grid Margin="20">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+
+        <!-- Header -->
+        <StackPanel Grid.Row="0" Margin="0,0,0,16">
+            <StackPanel Orientation="Horizontal" VerticalAlignment="Center">
+                <Path Data="{StaticResource IconLightbulb}" Width="18" Height="18" Stretch="Uniform" Fill="#2563EB" Margin="0,0,8,0" VerticalAlignment="Center" />
+                <TextBlock Text="Alur Paling Enak &amp; Cepat Mengumpulkan Data Peserta" FontSize="18" FontWeight="Bold" Foreground="#0F172A" VerticalAlignment="Center" />
+            </StackPanel>
+            <TextBlock Text="Ikuti 3 langkah mudah ini untuk mengumpulkan ratusan nama peserta tanpa repot mengetik satu per satu:"
+                       FontSize="13" Foreground="#64748B" Margin="0,4,0,0" TextWrapping="Wrap" />
+        </StackPanel>
+
+        <!-- Steps Content -->
+        <ScrollViewer Grid.Row="1" VerticalScrollBarVisibility="Auto">
+            <StackPanel>
+                <!-- Step 1 -->
+                <Border Background="White" BorderBrush="#E2E8F0" BorderThickness="1" CornerRadius="8" Padding="14" Margin="0,0,0,12">
+                    <DockPanel LastChildFill="True">
+                        <Border Background="#2563EB" CornerRadius="14" Width="28" Height="28" Margin="0,0,12,0" VerticalAlignment="Top">
+                            <TextBlock Text="1" Foreground="White" FontWeight="Bold" FontSize="14" HorizontalAlignment="Center" VerticalAlignment="Center" />
+                        </Border>
+                        <StackPanel>
+                            <TextBlock Text="Buat Google Form Pendaftaran / Absensi" FontWeight="SemiBold" Foreground="#1E293B" FontSize="14" />
+                            <TextBlock Text="Buat pertanyaan dengan judul singkat yang jelas, misalnya:" FontSize="12" Foreground="#475569" Margin="0,4,0,2" />
+                            <TextBlock Text="• 'nama' atau 'Nama Lengkap Beserta Gelar'" FontSize="12" Foreground="#0369A1" FontWeight="Medium" Margin="10,0,0,2" />
+                            <TextBlock Text="• 'instansi' atau 'Asal Sekolah / Universitas / Perusahaan'" FontSize="12" Foreground="#0369A1" FontWeight="Medium" Margin="10,0,0,2" />
+                            <TextBlock Text="• 'peran' (opsional: Peserta, Narasumber, Panitia)" FontSize="12" Foreground="#0369A1" FontWeight="Medium" Margin="10,0,0,4" />
+                            <TextBlock Text="Tips: Beri instruksi ke peserta: 'Tulis nama lengkap beserta gelar jika ingin dicantumkan di sertifikat'."
+                                       FontSize="11" Foreground="#059669" FontStyle="Italic" />
+                        </StackPanel>
+                    </DockPanel>
+                </Border>
+
+                <!-- Step 2 -->
+                <Border Background="White" BorderBrush="#E2E8F0" BorderThickness="1" CornerRadius="8" Padding="14" Margin="0,0,0,12">
+                    <DockPanel LastChildFill="True">
+                        <Border Background="#2563EB" CornerRadius="14" Width="28" Height="28" Margin="0,0,12,0" VerticalAlignment="Top">
+                            <TextBlock Text="2" Foreground="White" FontWeight="Bold" FontSize="14" HorizontalAlignment="Center" VerticalAlignment="Center" />
+                        </Border>
+                        <StackPanel>
+                            <TextBlock Text="Buka Jawaban di Google Sheets &amp; Salin (Ctrl+C)" FontWeight="SemiBold" Foreground="#1E293B" FontSize="14" />
+                            <TextBlock Text="1. Pada Google Form, buka tab 'Jawaban / Responses'." FontSize="12" Foreground="#475569" Margin="0,4,0,2" />
+                            <TextBlock Text="2. Klik ikon hijau 'Lihat di Spreadsheet' (Google Sheets)." FontSize="12" Foreground="#475569" Margin="0,0,0,2" />
+                            <TextBlock Text="3. Sorot / blok kolom data (mulai dari baris judul paling atas sampai baris peserta terakhir), lalu tekan Ctrl+C untuk menyalin." FontSize="12" Foreground="#475569" Margin="0,0,0,0" />
+                        </StackPanel>
+                    </DockPanel>
+                </Border>
+
+                <!-- Step 3 -->
+                <Border Background="White" BorderBrush="#E2E8F0" BorderThickness="1" CornerRadius="8" Padding="14" Margin="0,0,0,12">
+                    <DockPanel LastChildFill="True">
+                        <Border Background="#16A34A" CornerRadius="14" Width="28" Height="28" Margin="0,0,12,0" VerticalAlignment="Top">
+                            <TextBlock Text="3" Foreground="White" FontWeight="Bold" FontSize="14" HorizontalAlignment="Center" VerticalAlignment="Center" />
+                        </Border>
+                        <StackPanel>
+                            <TextBlock Text="Tempel di Aplikasi (Ctrl+V) atau Impor Excel" FontWeight="SemiBold" Foreground="#1E293B" FontSize="14" />
+                            <TextBlock Text="• Anda cukup klik tombol 'Tempel dari Clipboard (Ctrl+V)' pada aplikasi ini. Data langsung otomatis masuk ke tabel!" FontSize="12" Foreground="#475569" Margin="0,4,0,2" />
+                            <TextBlock Text="• Atau jika Anda mengunduh file spreadsheet (File -> Download -> Microsoft Excel .xlsx), cukup klik tombol 'Buka File Excel'." FontSize="12" Foreground="#475569" Margin="0,0,0,0" />
+                        </StackPanel>
+                    </DockPanel>
+                </Border>
+            </StackPanel>
+        </ScrollViewer>
+
+        <!-- Bottom Actions -->
+        <DockPanel Grid.Row="2" Margin="0,16,0,0" LastChildFill="False">
+            <Button Content="Tutup Panduan" IsCancel="True" Padding="20,8" DockPanel.Dock="Right"
+                    Background="#2563EB" Foreground="White" BorderThickness="0" FontWeight="SemiBold" Cursor="Hand" />
+        </DockPanel>
+    </Grid>
+</Window>
